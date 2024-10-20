@@ -21,16 +21,16 @@ The dataset for this project is sourced from [Kaggle](https://www.kaggle.com/dat
 
 In this project, we employed a robust deep learning framework to detect and classify Diabetic Retinopathy and other retinal conditions using a custom ensemble model that combines EfficientNet and Vision Transformer (ViT) architectures. The training process began with the creation of a comprehensive dataset loader utilizing Albumentations for advanced data augmentation techniques, such as random rotations, brightness adjustments, and dropout, to enhance model robustness and improve generalization. We configured the model to classify images into five categories of Diabetic Retinopathy while also detecting other conditions like Central Retinal Vein Occlusion (CRVO), Branch Retinal Vein Occlusion (BRVO), Pre-Retinal Hemorrhage (PRH), and Retinal Hemorrhages Localized (RHL). The training utilized Focal Loss, which is particularly effective in addressing class imbalance and emphasizing harder-to-classify samples. A Cosine Annealing Warm Restarts scheduler was employed to dynamically adjust the learning rate, optimizing convergence throughout the 100 epochs of training. The model was evaluated using accuracy metrics on both training and validation datasets, with the best model weights saved for future inference. Overall, this approach not only demonstrates the effectiveness of ensemble learning in medical imaging but also highlights the potential of AI to assist in critical healthcare diagnostics related to DME and its complications.
 
-###Ensemble learning model for DR
+### Ensemble learning model for DR
 
-
-###Model Architecture
+### Model Architecture
 This project utilizes an ensemble model architecture that combines two powerful neural network architectures: *EfficientNet-B0* and the *Vision Transformer (ViT)*. EfficientNet-B0 is recognized for its efficiency regarding parameters and computational resources while achieving high accuracy in image classification tasks, thanks to its balanced scaling of depth, width, and resolution. In contrast, ViT leverages self-attention mechanisms to effectively capture global dependencies in images, making it particularly effective for various computer vision applications. By averaging the predictions from both EfficientNet and ViT, this ensemble model employs a soft voting approach that enhances robustness and accuracy, ultimately improving the classification of Diabetic Retinopathy from retinal images.
 
-##Results
-
-##Clot and bleed detection model
-###Model Architecture
+## Results
+![output (1)](https://github.com/user-attachments/assets/4d58e008-7b10-4070-ba54-9dc5d3579af2)
+![output](https://github.com/user-attachments/assets/cd70e467-bc33-457b-956c-1ded6809c710)
+## Clot and bleed detection model
+### Model Architecture
 
 - *Dataset*: Custom ClotDataset loads images and labels, filtering only available images.
 - *Data Augmentation*: Resizes to (512, 384), applies random flips, rotations, and normalization.
@@ -41,12 +41,11 @@ This project utilizes an ensemble model architecture that combines two powerful 
 - *Optimizer*: Adam optimizer with a learning rate of 0.001.
 - *Accuracy Calculation*: Rounds sigmoid output to compare with ground truth.
 
-  ###Results
-  - *Training*: 20 epochs with a progressive increase in accuracy.
-- *Performance Metrics*:
-  - *Training Loss*: Average loss across training batches.
-  - *Training Accuracy*: Accuracy measured across training batches.
-  - *Validation Loss*: Average loss on validation batches.
-  - *Validation Accuracy*: Accuracy on validation data.
+  ### Results
+    
+  ![clot_accuracy_graph](https://github.com/user-attachments/assets/17f6e7f5-478b-4d54-a55a-54f8b78c086f)
+  
+  ![clot_loss_graph](https://github.com/user-attachments/assets/7cb4f5bc-e267-463f-8bc6-9d915f47632b)
+
 
 > Model is trained and ready. We are currently in the final stages of deployment into our web-app whose frontend is also all ready.
